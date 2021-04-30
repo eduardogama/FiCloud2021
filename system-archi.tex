@@ -7,16 +7,16 @@ This section explains the modeling used in our experiments. We first provide an 
 
 \subsection{Impact of Fog Multi-tier Network Approach}
 
-In Figure~\ref{fig:impact-two-layers}, we present two approaches to address the impact identified for requesting the multimedia content in different layers on the network. The charts show the results of bit rate, interruptions, buffer and representations switch, respectively from left to right over the simulation time. As we can see, both users have had no interruptions throughout the video, besides the initial interruption until the start of the video. However, the user who received the video on the nearest fog layer had a higher bit rate than the other user. As well as the buffer was soon filled and the user had the best possible resolution of the video. Whereas the user who received the video from a more distant layer, in some moments, worked with the buffer at the limit and had to constantly switch resolutions so that there is no interruption during the video execution.
-
-\subsection{Resource Requirements based on QoS}
-
-Manage the QoE users refer to those service where the satisfaction guarantees can be centrally controlled by the controller. The Controller can address this problem by creating a control channel to managed-quality video streaming services over the edge-cloud network.
-
+To confirm these diference in users performance requesting a video from a node in different tiers. We present two approaches to address the impact identified for requesting the multimedia content in different layers on the network. In Figure~\ref{fig:impact-two-layers}, the charts show the results of bit rate, interruptions, buffer and representations switch, respectively from left to right over the simulation time. As we can see, both users have had no interruptions throughout the video, besides the initial interruption until the start of the video. However, the user who received the video on the nearest fog layer had a higher bit rate than the other user. As well as the buffer was soon filled and the user had the best possible resolution of the video. Whereas the user who received the video from a more distant layer, in some moments, worked with the buffer at the limit and had to constantly switch resolutions so that there is no interruption during the video execution.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\linewidth]{images/qoe-multi-level.pdf}
-    \caption{Overview of the multi-tier-based  network environmental simulation.}
+    \caption{\textbf{The number of bitrate switches, stalls, buffer size, the startup delay in seconds of a DASH player requesting a video with 10 bitrate levels varying from 50 to 4,500Kbps and from nodes in different tiers.}}
     \label{fig:impact-two-layers}
 \end{figure}
+
+\subsection{Resource Requirements based on QoS}
+
+Manage the QoE users refer to those service where the satisfaction guarantees can be centrally controlled by the controller. The Controller can address this problem by creating a control channel to managed-quality video streaming services over the edge-cloud network.
+%l
