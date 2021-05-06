@@ -7,9 +7,13 @@ This section explains the modeling used in our experiments. We first provide an 
 
 \subsection{Impact of Fog Multi-tier Network Approach}
 
-To confirm these diference in users performance requesting a video from a node in different tiers, We present two users requesting requesting a multimedia content in different layers on the network to address the impact occurred. In Figure~\ref{fig:impact-two-layers}, the graphs show the results of bitrate, interruptions, buffer and representations switch, respectively from left to the right, and along x-axis the simulation time. We consider 
+A vertically edge architecture with N levels aims to: \textit{i)} Improve the QoE of users, serving the requested content as close to the user as possible; \textit{ii)} Reduce congestion at the core of the network; \textit{iii)} efficiently deal with the amount of data that needs to be processed and extract meaningful data to create more intelligence at each level.
+
+To confirm these diference in users performance requesting a video from a node in different tiers, . We present two users requesting requesting a multimedia content in different layers on the network to address the impact occurred. In Figure~\ref{fig:impact-two-layers}, the graphs show the results of bitrate, interruptions, buffer and representations switch, respectively from left to the right, and along x-axis the simulation time. 
 
 As we can see, both users have had no interruptions throughout the video, besides the initial interruption until the start of the video. However, the user who received the video on the nearest fog layer had a higher bit rate than the other user. As well as the buffer was soon filled and the user had the best possible resolution of the video. Whereas the user who received the video from a more distant layer, in some moments, worked with the buffer at the limit and had to constantly switch resolutions so that there is no interruption during the video execution.
+
+
 
 \begin{figure}
     \centering
@@ -21,6 +25,7 @@ As we can see, both users have had no interruptions throughout the video, beside
 
 \subsection{Multi-tier Edge-Cloud Network Opportunities}
 
+Esta seção apresenta algumas oportunidades dentro de redes multi-tier edge/cloud para o provisionamento da transmissção de videos. Aproveitar nós próximos aos usuários podem melhorar o funcionamento do rede como um todo, aqui nós discutimos alguns insights que podem ser usados em favor dos stakeholders que utilizam a infraestrutura para transmissão de video. 
 
 
 \subsubsection{Improving User QoE}
@@ -29,9 +34,13 @@ The results reported in Fig~\ref{fig:impact-two-layers} shows that a edge multi-
 
 \subsubsection{Potential Bandwith Saving}
 
+
+
 \subsubsection{Cacheability}
 
+
 Caching audio/video during peak hours ...
+
 
 \subsection{Resource Requirements based on QoS}
 
