@@ -38,7 +38,9 @@ To implement DASH servers and users that allow adaptive video streaming, we use 
 %Dash server and the clients allowed to request a multimedia content in DASH format, was used the Adaptive Multimedia Streaming~(AMuSt). The AMust system allow a set o apps to produce and consume the adaptive video, based on Dash pattern. The DASH functionality is provided by the libdash library, an open source library that provides an interface to the DASH standard. Currently, libdash is the reference software official DASH standard.
 
 For sake of simplicity, the cache video used in simulation are considered deployed in the edge dash nodes.
-We simulate the scenario in a binary tree topology of height two.  Firstly, We compare with the cloud-only scenario, without edge cache, to the difference with and without the edge use.
+We simulate the scenario in a binary tree topology of height two. Firstly, We compare with the cloud-only scenario, without edge cache, to the difference with and without the edge use.
+
+To illustrate the idea, we assume tree topology. According to the guideline, a mobile backhaul network is modeled as a two-level hierarchical network. Wireless base stations are connected to aggregation nodes, e.g., service/packet data network gateway (S/P-GW) nodes. Furthermore, aggregation nodes are connected to core nodes, e.g., central office nodes. To the best of our knowledge, separation of traffic from one wireless base stations to multiple aggregation nodes, and from one aggregation node to multiple core nodes is not dominant in current mobile backhaul networks. Thus, we assume a tree-topology backhaul network
 
 
 \input{figures}
