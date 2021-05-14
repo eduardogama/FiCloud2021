@@ -1,7 +1,27 @@
 \section{Motivation and Related Work}
 \label{sec:related-work}
 
-This section describes the related works in edge-cloud computing for video streaming. here, some representative works in QoE are summarized, regarding the strategies proposals to improve the video provisioning by the edge.
+This section describes the related works in edge/cloud computing for video streaming. Here, some representative works in QoE are summarized, regarding the edge network topoligies and its impacts in the video provisioning.
 
-In regard of Dynamic Adaptive Streaming over HTTP~(DASH) a number of works take in consideration the users' QoE. However, they not take in consideration the caching hirearchical problem, as weel as the user mobility during a comutation changes amid different APs.
 
+%CACA: Learning-based Content-aware Cache Admission for Video Content in Edge Caching
+In Guan~\textit{et al.}~\cite{guan:2019:CLC} demonstrate the performance of the two-tier edge caching network. The algorithm developed reach up a 15\% of hit ratio in multimedia content consuming 20\% less memory usage. They Deployed a video caching system, When request a video the DNS-based mapping redirect the request to the cache closer the client. If the cache node does not hit the cideo, the edge node forwards it to tier above, which in turns forwards the request to the tier above until arrive to the source. Otherwise, any node caching the video, it returned immediately adn the reques is not forwarded to a upstream.
+
+Rosario~\textit{et al.}~\cite{rosarioSENSORS2018} present an architecture for virtual machine migration in real time. During the migration the video provisioning is moved foward to a multi-tier network.The architecture is based on the SDN paradigm for video distribution with QoE support. The work divides the fog into three layers, to ensure storage, upload and download capacity as presented in~\ref{fig:multi-tier-network}. In the experimental scenario, the cloud distributes the video content to the different levels of the edge with the multimedia service.
+
+In Shen~\textit{et al.}~\cite{shenIWQoS19} works with a set of cache proxy services to analyze the cache miss occurrences. This work implements a reactive approach where cache proxies download the chunks of multimedia content when requested. The cache services use probability theory to improve the efficiency in transferring corresponding blocks of video in the cloud. In this way, they demonstrated an improvement in the users' QoE.
+
+%Layered Hierarchical Caching for SVC-Based HTTP Adaptive Streaming over C-RAN
+In Zhang~\textit{et al.}~\cite{zhang:WCNC2017}, the nework is composed of a cloud server connected with a Base band Unit Pool and a set of Remote radio heads as cache nodes, the environment is organized hierarchicaly in layers. The heuristic proposed is formulated considering the downloading rate between the cache nodes, The solution has twofold goals, minimize the amount of backhaul traffic, and improve the hit rate in VOD systems.
+
+
+
+The aforementioned approaches could decrease the traffic load and improve QoE, but more issues arise in such scenarios: user mobility, collaborative cache schemes over multi-edge, the amount of users during flash crowds, and interactive streaming requirements are not fully considered. In this project we aim to design a video delivery system that considers such issues to improve quality of experience for a range of video streaming needs, including low latency requirements.
+
+
+%The aforementioned approaches could decrease the traffic load and improve QoE, but more
+%issues arise in such scenarios: user mobility, collaborative cache schemes over multi-edge, the amount of users during flash crowds, and interactive streaming requirements are not fully considered. In this project we aim to design a video delivery system that considers such issues to improve quality of experience for a range of video streaming needs, including low latency requirements.
+%
+%
+%The aforementioned approaches could decrease the traffic load and improve QoE, but more
+%issues arise in such scenarios: user mobility, collaborative cache schemes over multi-edge, the amount of users during flash crowds, and interactive streaming requirements are not fully considered. In this project we aim to design a video delivery system that considers such issues to improve quality of experience for a range of video streaming needs, including low latency requirements.
