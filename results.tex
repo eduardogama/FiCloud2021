@@ -6,7 +6,7 @@ In this section we describe the experimental evaluation of the strategy proposed
 
 \subsection{QoE Metric evaluation}
 
-There exist many viewer QoE models in the literature. we will describe the QoE metrics used to score the user satisfaction. Firstly, We compute each video quality chunk by a logarithmic law over bit-rates. Study in [11] propose a video quality model for DASH as shown in Equation (1). Each video has $N$ chunks and is encoded with $L$ bitrate levels. $r_i$ represents a specific bitrate level. At each step $i$, the quality of chunk $i$ which is encoded at $l_i$ is defined as:
+There exist many viewer QoE models in the literature. we will describe the QoE metrics used to score the user satisfaction. Firstly, We compute each video quality chunk by a logarithmic law over bit-rates. Study in~ propose a video quality model for DASH as shown in Equation (1). Each video has $N$ chunks and is encoded with $L$ bitrate levels. $r_i$ represents a specific bitrate level. At each step $i$, the quality of chunk $i$ which is encoded at $l_i$ is defined as:
 
 $$
 q(r_i) = a_1 * log(a_2 * (r_i/ r_{|L|}))
@@ -37,8 +37,10 @@ To implement DASH servers and users that allow adaptive video streaming, we use 
 
 %Dash server and the clients allowed to request a multimedia content in DASH format, was used the Adaptive Multimedia Streaming~(AMuSt). The AMust system allow a set o apps to produce and consume the adaptive video, based on Dash pattern. The DASH functionality is provided by the libdash library, an open source library that provides an interface to the DASH standard. Currently, libdash is the reference software official DASH standard.
 
-For sake of simplicity, the cache video used in simulation are considered deployed in the edge dash nodes.
+For sake of simplicity, the cache video used in simulation are already considered deployed in the edge dash nodes.
 We simulate the scenario in a binary tree topology of height two. Firstly, We compare with the cloud-only scenario, without edge cache, to the difference with and without the edge use.
+
+The AP nodes is implemented on an wireless device which communicates via IEEE 802.11g in 2.4GHz frequency. The APs are connected with the routes by a wire and the end-users via wireless. Each users is located exatcly 8 meters of distance.
 
 %To illustrate the idea, we assume tree topology. According to the guideline, a mobile backhaul network is modeled as a two-level hierarchical network. Wireless base stations are connected to aggregation nodes, e.g., service/packet data network gateway (S/P-GW) nodes. Furthermore, aggregation nodes are connected to core nodes, e.g., central office nodes. To the best of our knowledge, separation of traffic from one wireless base stations to multiple aggregation nodes, and from one aggregation node to multiple core nodes is not dominant in current mobile backhaul networks. Thus, we assume a tree-topology backhaul network
 
@@ -47,10 +49,10 @@ We simulate the scenario in a binary tree topology of height two. Firstly, We co
 
 \subsection{Results}
 
-We made the experiment illustrated in Figure~\ref{fig:red-comparison-plot} to show the average QoE as shown in~\ref{qoe-equation} to 15, 20 and 25 users. In this experiment, a medida que os usuários vão chegando o QoE final tenda a ser um pouco menor do que o anterior. Quando olhamos para delta do QoE final entre usuários $u_{i}$ e $u_{i+1}$ parecem ser irrelevante, mas a medida que aumentamos o delta o QoE começa se tornar considerável. Através da figura~\ref{fig:co-comparison-boxplot} nós também conseguimos afirmar esse comportamento, a medida que o número de usuários aumenta o QoE medio diminui e a variação entre os usuários aumenta. Note também que a simulação com 25 usuários por ap o sistema já apresenta uma degradação na qualidade percebida pelo usuário final de forma negativa.
+We made the experiment illustrated in Figure~\ref{fig:red-comparison-plot} to show the average QoE as shown in~\ref{qoe-equation} to 15, 20 and 25 users. In this experiment, as users reach the final QoE, it tends to be a little lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta the QoE starts to become considerable. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases and the variation between users increases. Also note that the simulation with 25 users per system the system already shows a degradation in the quality perceived by the end user in a negative way.
 
-Enquanto que as Figuras~\ref{fig:red-comparison-plot} e \ref{fig:red-comparison-boxplot} mostram que uma simples estrategia de alocação do video na borda pode ajudar a melhorar a qualidade de experiencia do usuário.
+While Figures~\ref{fig:red-comparison-plot} and~\ref{fig:red-comparison-boxplot} show that a simple video allocation strategy at the edge can help improve the quality of the user experience.
 
-As figuras~\ref{fig:comparison-qoe-2} mostram que uma simples estrategia de mover o video para a borda pode melhorar o QoE do usuário significativamente. Desta forma, o sistema de transmissão de video consegue  prover uma qualidades de satisfação de usuário bem como tendem a mantê-los assistindo o video até o final.
+The Figures~\ref{fig:comparison-qoe-2} shows a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system is able to provide user satisfaction qualities as well as they tend to keep them watching the video until the end. 
 
-É importante notar que, apesar das taxas de bits entre os mecanismos ABR serem semelhantes, as interrupções que eles podem gerar são significativamente diferentes, o que impacta diretamente no QoE dos usuários. Outro ponto a ser observado é a taxa de bits media entre diferentes nı́veis. No cenário com 20 usuários o nı́vel 3 conseguiu atingir o que necessário para obter a maior representação de taxa bits, desta forma, operadores de rede podem buscar a implantação de caches durante horários de pico para prover a melhor experiência ao usuário.
+It is important to note that, although the bit rates between the ABR mechanisms are similar, the interruptions they can generate are significantly different, which directly impacts users' QoE. Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
