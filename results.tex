@@ -2,30 +2,10 @@
 \label{sec:results}
 
 In this section we describe the experimental evaluation of the strategy proposed to redirect the users, including the scenarios, metrics, methodology and outcomes.
-
-
-\subsection{QoE Metric evaluation}
-
-There exist many viewer QoE models in the literature. we will describe the QoE metrics used to score the user satisfaction. Firstly, We compute each video quality chunk by a logarithmic law over bit-rates. Study in~ propose a video quality model for DASH as shown in Equation (1). Each video has $N$ chunks and is encoded with $L$ bitrate levels. $r_i$ represents a specific bitrate level. At each step $i$, the quality of chunk $i$ which is encoded at $l_i$ is defined as:
-
-$$
-q(r_i) = a_1 * log(a_2 * (r_i/ r_{|L|}))
-$$
-
-To quantify a long-term users' QoE, we require a flexible QoE model that includes the most effective metrics. 
-We consider the Eqn. (7) which consists of four metrics: (a) the average chunk perceptual quality, (b) the average number of quality oscillations, (c) the average number of stall events and their durations, and (d) the startup delay. K
-
-\begin{equation}\label{qoe-equation}
-QoE_i = \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4
-\end{equation}
-
-
-The QoE has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 = good, and 5 = excellent.
  
- 
-\subsection{Methodology}
-
-We present three approaches to address the methodological problems identified in a edge/cloud multi-tier network for watching a video streaming: cloud-only 
+%\subsection{Methodology}
+%
+%We present three approaches to address the methodological problems identified in a edge/cloud multi-tier network for watching a video streaming: cloud-only 
 
 \subsection{Experimental Setup}
 
@@ -46,9 +26,8 @@ The AP nodes is implemented on an wireless device which communicates via IEEE 80
 We present three approaches to address the impacts identified in Section~\ref{sec:system-archi} into the edge/cloud multi-tier network: the \textit{cloud-only}, \textit{1\&2 nodes} and mobile-based scenarios. The cloud-only scenario uses just the Cloud Provider node to delivery the video content. \textit{1\&2 nodes} uses the nodes 1 ad 2 as auxialiary nodes to delivery the video. The simulation starts with the users requesting the video from the cloud. When some link detect a congested link  the edge cache abaixo do link is turned on. Thereafter, the users que estão recebendo o video ao longo do link congestionado, são redirecionados para o nó da borda. 
 
 The number of end-user devices communicating through each wireless AP may change over time, due to mobility the end-user devices. In practice, the number of end-user devices connecting to the wireless AP changes frequently. 
-Para mostrar os problemas que podem aparecer em um cenário onde os usuários, e ocorre uma mudança de conexão entre entre os APs. Nós executamos novamente o experimento mantendo as conexões entre os usuários e edge nodes, mas mudamos a conexão entre os usuários e os APs. 
-
-Para mostrar o impacto que pode ocorrer em um cenário sem um gerenciamento adequado das conexões ativas na borda.
+To show the problems that can appear in such scenarios, and a connection change between the APs occurs. We ran the second experiment again maintaining connections between users and edge nodes, but changed the connection between users and APs.
+%Para mostrar os problemas que podem aparecer em tais cenários, e ocorre uma mudança de conexão entre os APs. Nós executamos novamente o segundo experimento mantendo as conexões entre os usuários e edge nodes, mas mudamos a conexão entre os usuários e os APs. 
 
 
 \begin{figure}
@@ -61,14 +40,95 @@ Para mostrar o impacto que pode ocorrer em um cenário sem um gerenciamento adeq
 %To illustrate the idea, we assume tree topology. According to the guideline, a mobile backhaul network is modeled as a two-level hierarchical network. Wireless base stations are connected to aggregation nodes, e.g., service/packet data network gateway (S/P-GW) nodes. Furthermore, aggregation nodes are connected to core nodes, e.g., central office nodes. To the best of our knowledge, separation of traffic from one wireless base stations to multiple aggregation nodes, and from one aggregation node to multiple core nodes is not dominant in current mobile backhaul networks. Thus, we assume a tree-topology backhaul network
 
 
+\subsection{QoE Metric evaluation}
+
+There exist many viewer QoE models in the literature. we will describe the QoE metrics used to score the user satisfaction. Firstly, We compute each video quality chunk by a logarithmic law over bit-rates. Study in~ propose a video quality model for DASH as shown in Equation (1). Each video has $N$ chunks and is encoded with $L$ bitrate levels. $r_i$ represents a specific bitrate level. At each step $i$, the quality of chunk $i$ which is encoded at $l_i$ is defined as:
+
+$$
+q(r_i) = a_1 * log(a_2 * (r_i/ r_{|L|}))
+$$
+
+To quantify a long-term users' QoE, we require a flexible QoE model that includes the most effective metrics. 
+We consider the Eqn. (7) which consists of four metrics: (a) the average chunk perceptual quality, (b) the average number of quality oscillations, (c) the average number of stall events and their durations, and (d) the startup delay. K
+
+\begin{equation}\label{qoe-equation}
+QoE_i = \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4
+\end{equation}
+
+The QoE has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 = good, and 5 = excellent.
+
 \input{figures}
 
-\subsection{Results}
+\subsection{Discussion and Results Summary}
 
-We made the experiment illustrated in Figure~\ref{fig:red-comparison-plot} to show the average QoE as shown in~\ref{qoe-equation} to 15, 20 and 25 users. In this experiment, as users reach the final QoE, it tends to be a little lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta the QoE starts to become considerable. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases and the variation between users increases. Also note that the simulation with 25 users per system, the system already shows a degradation in the quality perceived by the end user in a negative way.
+Como mencionado anteriormente, o comportamento dos esquemas ABR introduzem o problema de
+decisões egoı́stas na escolha do próximo segmento a ser solicitado. Obviamente, diferentes métricas
+de escolhas do segmento levam a diferentes resultados no status de ocupação do buffer e qualidade de
+vı́deo do usuário, o que resulta em um fator de QoE diferente de acordo com a heuristica utilizada.
+
+We made the experiment illustrated in Figure~\ref{fig:red-comparison-plot} to show the average QoE as shown in~\ref{qoe-equation} to 15, 20 and 25 users from the left to the right, respectively. Each boxplot represents the scenario outcome. As seen, the average performance of the 1\&2 is much superior than that of the Cloud-only and before the mobility. This is due to as escolhas dos nós na borda para o redirecionamento das requisições feitas pelo usuários. For instance, for a 1\&2 experiment, the difference of performance of the Cloud-only and mobility is near to one order of satisfaction for 15 and 20 users, and aproximately two~three orders of satisfation with 25 users. 
+%
+Since the users requesting the segments by yhe closer nodes in scenario 1\&2, it is
+evident that, as the QoE increases. Remember that the scenario 1\&2 there is a link congestion monitoring, so when a congestion link is detected the cache node above the link is activated, and the users are redirected to request the video from the cache node. 
+
+Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start he segment requests), the green plot represents the number of active users simultaneosly.  
+In this experiment, as users reach the final QoE, it tends to be a little lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta the QoE starts to become considerable. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases and the variation between users increases. Also note that the simulation with 25 users per system, the system already shows a degradation in the quality perceived by the end user in a negative way.
 
 While Figures~\ref{fig:red-comparison-plot} and~\ref{fig:red-comparison-boxplot} show that a simple video allocation strategy at the edge can help improve the quality of the user experience.
 
 The Figures~\ref{fig:comparison-qoe-2} shows a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system is able to provide user satisfaction qualities as well as they tend to keep them watching the video until the end. 
 
 It is important to note that, although the bit rates between the ABR mechanisms are similar, the interruptions they can generate are significantly different, which directly impacts users' QoE. Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
