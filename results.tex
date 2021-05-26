@@ -66,21 +66,21 @@ The QoE has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 =
 
 The experiment illustrated in Figure~\ref{fig:red-comparison-plot} to show the average QoE as shown in~\ref{qoe-equation} to 15, 20, and 25 users from left to right, respectively. Each boxplot represents the Cloud-only, 1\&2 node and mobility scenarios. As seen, the average overall performance of the 1\&2 is much superior than that of the Cloud-only and mobility. Mainly, due to the choices of nodes at the edge peering nodes for serving the requests done by users. 
 %
-For instance, for a 1\&2 experiment, ocorre em congestionamento nos enlaces intermediarios $e_{0,1}$ e $e_{0,2}$, e com o monitoramento do 
-%
-The difference in the performance of the Cloud-only and mobility is near one order of satisfaction for 15 and 20 users and approximately two~three orders of satisfaction with 25 users. 
+For instance, for a 1\&2 experiment, ocorre em congestionamento nos enlaces intermediários $e_{0,1}$ e $e_{0,2}$, os edge peering nodes are activates para atender os usuários abaixo desses nós. Desta forma, os trafego que estava passando pelos link acima agora vão ser suavizados, assim os usuários conseguem melhorar seu QoE resultante para um nível excelente.    
 %
 Since the users requesting the segments by the closer nodes in scenarios 1\&2, it is
 evident that as the QoE increases. Remember that the scenario 1\&2, there is a link congestion monitoring, so when a congestion link is detected, the cache node above the link is activated, and the users are redirected to request the video from the cache node.
+%
+The difference in the performance of the Cloud-only and mobility is near one order of satisfaction for 15 and 20 users and approximately two~three orders of satisfaction with 25 users. 
 
-Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start the segment requests). The green plot represents the number of active users simultaneously.  
-As users reach the final QoE in this experiment, it tends to be a little lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
+Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start the segment requests). Here, we can see the final QoE degradation to each users entrance along the simulation execution. The green plot represents the number of active users simultaneously.  
+As users reach the final QoE in this experiment, it tends to be a little lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable differnt. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
 
 %While Figures~\ref{fig:red-comparison-plot} and~\ref{fig:red-comparison-boxplot} show that a simple video allocation strategy at the edge can help improve the quality of the user experience.
 
 The Figures~\ref{fig:comparison-qoe-2} shows a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system is able to provide user satisfaction qualities as well as they tend to keep them watching the video until the end. 
 
-It is important to note that, although the bit rates between the ABR mechanisms are similar, the interruptions they can generate are significantly different, which directly impacts users' QoE. Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
+It is important to note that, although the bit rates between the mechanisms are similar, the interruptions they can generate are significantly different, which directly impacts users' QoE. Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
 Based on these observations, caso não ocorra um correcto management das conexões em tempo real,  we can conclude that the impact introduced by the AP changes can decrease significantly the QoE for mobile users. A experiencia do usuário pode acabar se tornando pior mesmo usando a borda da rede. Um gerenciamento adequado do conteúdo multimidia pode ser feito de modo que uma simples migração do conteúdo dentro da borda pode solucionar o problema.
 
