@@ -13,7 +13,7 @@ This section describes the experimental evaluation of the strategy proposed to r
 %[30] C. Mueller, S. Lederer, J. Poecher, and C. Timmerer. Demo paper: Libdash - an open source software library for the mpeg-dash standard. In 2013 IEEE International Conference on Multimedia and Expo Workshops (ICMEW), pages 1–2, July 2013.
 % Per-title encode optimization, 2015. ; accessed 20-novembro-2019.
 
-We use Adaptive Multimedia Streaming~(AMuSt)~[1] to implement video streaming server, the server is implement through Dynamic Adaptive Streaming ove HTTP~(DASH) and users that allow adaptive video streaming. The AMuSt framework provides a set of applications for producing and consuming adaptable video, based on the DASH standard. DASH functionality is provided by the libdash library~[2], an open source library that provides an interface to the DASH standard. Currently, libdash is the official reference software for the DASH standard. We consider that users are interested in an available video with ten different bit rate representations \{235kbps, 375kbps, 560kbps, 560kbps, 750kbps, 1050kbps, 1750kbps, 2350kbps, 3000kbps, 4300kbps, 5800kbps\}, which are used by Netflix subsets~[3], which Netflix uses. [31]. Each representation is divided into 2-second segments. Each experiment is executed once with a video of 1600 seconds~(800 segments). 
+We use Adaptive Multimedia Streaming~(AMuSt)~\cite{kreuzberger2016amust} to implement video streaming server, the server is implement through Dynamic Adaptive Streaming ove HTTP~(DASH) and users that allow adaptive video streaming. The AMuSt framework provides a set of applications for producing and consuming adaptable video, based on the DASH standard. DASH functionality is provided by the libdash library~\cite{mueller2013ICMEW}, an open source library that provides an interface to the DASH standard. Currently, libdash is the official reference software for the DASH standard. We consider that users are interested in an available video with ten different bit rate representations \{235kbps, 375kbps, 560kbps, 560kbps, 750kbps, 1050kbps, 1750kbps, 2350kbps, 3000kbps, 4300kbps, 5800kbps\}, which are used by Netflix subsets~\cite{netflix:representation}, which Netflix uses. [31]. Each representation is divided into 2-second segments. Each experiment is executed once with a video of 1600 seconds~(800 segments). 
 For sake of simplicity, the multimedia content used in the simulation is already deployed in the edge peering nodes. 
 
 %Figure 3 shows the topology with three levels used in the experiments, each level \{1, 2 and 3\} is represented as a scenario.
@@ -50,13 +50,16 @@ q(r_i) = a_1 * log(a_2 * (r_i/ r_{|L|}))
 $$
 
 We require a flexible QoE model that includes the most influential metrics to quantify a long-term users' QoE. 
-We consider the Eq.~\ref{eq:qoe-equation} which consists of four metrics: (a) the average chunk perceptual quality, (b) the average number of quality oscillations, (c) the average number of stall events and their durations, and (d) the startup delay. K
+We consider the Eq.~\ref{eq:qoe-equation} which consists of four metrics: (a) the average chunk perceptual quality, (b) the average number of quality oscillations, (c) the average number of stall events and their durations, and (d) the startup delay. $K$ represents the total segments of the video, $S_{i}$ is the stall duration and $ST_{i}$ is the startup delay of user $i$.
 
 \begin{equation}\label{eq:qoe-equation}
-QoE_i = \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4
+\begin{split}
+QoE_i = \frac{1}{K} \sum_{k=1}^{K}q(r_{k}) - \frac{1}{K-1} \sum_{k=1}^{K-1}|q(r_{k+1}) - q(r_{k}))| \\
+- \frac{1}{K}\sum_{k=1}^{K} S_{k} - ST_{i}
+\end{split}
 \end{equation}
 
-The QoE has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 = good, and 5 = excellent.
+The $QoE_{i}$ for each user $i$ has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 = good, and 5 = excellent.
 
 \input{figures}
 
@@ -64,16 +67,18 @@ The QoE has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 =
 
 %As mentioned earlier, the behavior of ABR schemes introduces the problem of selfish decisions when choosing the next segment to be requested. Obviously, different metrics of segment choices lead to different results in the status of buffer occupation and quality of the user's video, which results in a different QoE factor according to the heuristic used.
 
-The experiment illustrated in Figure~\ref{fig:red-comparison-plot} to show the average QoE as shown in~\ref{qoe-equation} to 15, 20, and 25 users from left to right, respectively. Each boxplot represents the Cloud-only, 1\&2 node and mobility scenarios. As seen, the average overall performance of the 1\&2 is much superior than that of the Cloud-only and mobility. Mainly, due to the choices of nodes at the edge peering nodes for serving the requests done by users. 
+The experiments illustrated in Figure~\ref{fig:comparison-boxplot} to show the average QoE as shown in~Eq.~\ref{eq:qoe-equation} to 15, 20, and 25 users from left to right, respectively. The boxplot represents the Cloud-only, 1\&2 node and mobility scenarios. As seen, the average overall performance of the 1\&2 is much superior than that of the Cloud-only and mobility. Mainly, due to the choices of nodes at the edge peering nodes for serving the requests done by users. 
 %
-For instance, for a 1\&2 experiment, ocorre em congestionamento nos enlaces intermediários $e_{0,1}$ e $e_{0,2}$, 
-the edge peering nodes are activates to serve users below those nodes. In this way, the traffic that was going through the link above will now be smoothed out, so users are able to improve their resulting QoE to an excellent level.
+For instance, for a 1\&2 experiment, it occurs a congestion in the intermediate links $e_{0,1}$ e $e_{0,2}$, 
+the edge peering nodes are activates to serve the end-users below those nodes. In this way, the traffic that was passing through the link above will now be smoothed out, so the users are able to improve their resulting QoE to an excellent level.
 %edge peering nodes are activates para atender os usuários abaixo desses nós. Desta forma, os trafego que estava passando pelos link acima agora vão ser suavizados, assim os usuários conseguem melhorar seu QoE resultante para um nível excelente.    
 %
-Since the users requesting the segments by the closer nodes in scenarios 1\&2, it is
-evident that as the QoE increases. Remember that the scenario 1\&2, there is a link congestion monitoring, so when a congestion link is detected, the cache node above the link is activated, and the users are redirected to request the video from the cache node.
+Since the users request the segments by the closer nodes in scenarios 1\&2, it is
+evident that as the QoE increases. %Remember that the scenario 1\&2, there is a link congestion monitoring, so when a congestion link is detected, the cache node above the link is activated, and the users are redirected to request the video from the cache node.
 %
 The difference in the performance of the Cloud-only and mobility is near one order of satisfaction for 15 and 20 users and approximately two~three orders of satisfaction with 25 users. 
+
+It is important to note that the QoE dos scenarios após a mobilidade os resultados are similares aos resultados de Cloud-only, even using the edge peering nodes the QoE are negatively impacted. Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
 Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start the segment requests). Here, we can see the final QoE degradation to each users entrance along the simulation execution. The green plot represents the number of active users simultaneously.  
 As users reach the final QoE in this experiment, it tends to be a little lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable differnt. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
@@ -81,8 +86,6 @@ As users reach the final QoE in this experiment, it tends to be a little lower t
 %While Figures~\ref{fig:red-comparison-plot} and~\ref{fig:red-comparison-boxplot} show that a simple video allocation strategy at the edge can help improve the quality of the user experience.
 
 The Figures~\ref{fig:comparison-qoe-2} shows a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system is able to provide user satisfaction qualities as well as they tend to keep them watching the video until the end. 
-
-It is important to note that, although the bit rates between the mechanisms are similar, the interruptions they can generate are significantly different, which directly impacts users' QoE. Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
 Based on these observations, caso não ocorra um correcto management das conexões em tempo real,  we can conclude that the impact introduced by the AP changes can decrease significantly the QoE for mobile users. A experiencia do usuário pode acabar se tornando pior mesmo usando a borda da rede. Um gerenciamento adequado do conteúdo multimidia pode ser feito de modo que uma simples migração do conteúdo dentro da borda pode solucionar o problema.
 
