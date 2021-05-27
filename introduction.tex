@@ -4,10 +4,12 @@
 %{\color{blue} In this section we will contextualize video streaming technology and hierarchical caching problems, emphasizing the need of create a hierarchical topology to , and describe the content of each section of the paper.}
 
 % Introduction of the Content and MEC service provider  
-Over the years, Internet traffic has grown exponentially around the world. Mainly, due to the multimedia content streaming which, currently, represents 70\% of the whole traffic~\cite{cisco:forecast}. To deliver a video, the Video-on-Demand services generate the streaming to be distributed by the Over-The-top providers. One important point addressed by the providers is to satisfy the quality of experience~(QoE) to a wide range of users subscribers. In addition, to provide the best user satisfaction, advantages of the high datarate and low latency in the edge network take into account nowadays~\cite{gamaUCC2019,DBLP:CoRR:2021,ye:ITC17}. This trend imposes new challenges in providing videos with the best QoE, originally designed considering the best-effort internet model for data transmission
-%In this way, caching the video closer to the end-user has a positive impact on the QoE performances.
+Over the years, Internet traffic has grown exponentially around the world. Mainly due to the multimedia content streaming, which, currently, represents 70\% of the whole traffic~\cite{cisco:forecast}. 
+The Over-the-top~(OTT) provider can use the network edge to caching and transmit the video traffic with an uninterrupted streaming experience, at least as smooth as possible, to accommodate this growing video demand. This includes current video services as well as innovative services such as Real-time video streams and future games console~(e.g. AWS Wavelength and Google Stadia).
+This trend imposes new challenges in video provisioning to satisfy the Quality of Experience~(QoE) guarantees for a wide range of users subscribers. As it is originally designed to consider the best-effort internet model for data transmission~\cite{gamaUCC2019, DBLP:CoRR:2021, ye:ITC17}.
+%In order to provide the best user satisfaction, the advantages of high datarate and low latency in the edge network take into account today~\cite{gamaUCC2019, DBLP:CoRR:2021, ye:ITC17}. This trend imposes new challenges in providing videos with the best QoE, originally designed considering the best-effort internet model for data transmission.
 
-In the moment that the content provider saturates available bandwidth or a particular set of service metrics across the network, the cloud server can reroute active connections to one or more edge caches that attend to the demand required. Such model can be represented by network organized hierarchically in multi-tiers to maintain a low traffic load~\cite{rosarioSENSORS2018}.
+In the moment that the content provider saturates available bandwidth or a particular set of service metrics across the network, the cloud server~(OTT provider) can reroute active connections to one or more edge caches that attend to the demand required. Such model can be represented by network organized hierarchically in multi-tiers to maintain a low traffic load~\cite{rosarioSENSORS2018}.
 %When the content provider saturates the available bandwidth or a certain set of service metrics, the request may be routed to one or more edge caches. This model may be organized hierarchically in multi-tiers maintains a low traffic load~\cite{rosarioSENSORS2018}.
 
 % Challenges
@@ -29,12 +31,12 @@ Several works in the literature highlight edge/cloud computing to deal with the 
 \end{figure}
 
 % Objective
-Motivated by these characteristics of multi-tier edge/cloud scenarios to improve users' satisfaction, as well as acommodate video traffic grows exponentiy. This article presents the need to have an orchestrator for the provision of video streaming content.
+Motivated by these characteristics in multi-tier edge/cloud scenarios to improve users' satisfaction, as well as accommodate the growing video traffic. This article presents the need for an orchestrator in real-time to provide video streaming content.
 Our goal is to provide designers and operators a performance analysis of a hierarchical edge network and its impacts on the users' QoE. The models we present in this paper are evaluated by a series of simulations using a controlled environment.
 
 % Organization paper
 This work is organized as follows.
-Section \ref{sec:related-work} presents related work on the impact of edge/cloud network on video streaming services.
-Section \ref{sec:system-archi} briefly describes the proposed muti-tier edge/cloud network.
-Section \ref{sec:results} shows a preliminarly results on the impact of the network performance for video streaming services.
+Section \ref{sec:related-work} presents related work on the impact of edge/cloud networks on video streaming services.
+Section \ref{sec:system-archi} briefly analysis the proposed multi-tier edge/cloud network and describe some opportunities of using such environments.
+Section \ref{sec:results} shows preliminary results on the impact of the network performance for video streaming services.
 Finally, \ref{sec:conclusion} concludes the paper.
