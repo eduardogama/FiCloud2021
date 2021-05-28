@@ -69,77 +69,26 @@ The $QoE_{i}$ for each user $i$ has a range of 1 to 5. Where the values 1 = bad,
 %As mentioned earlier, the behavior of ABR schemes introduces the problem of selfish decisions when choosing the next segment to be requested. Obviously, different metrics of segment choices lead to different results in the status of buffer occupation and quality of the user's video, which results in a different QoE factor according to the heuristic used.
 
 The experiments illustrated in Figures~\ref{fig:comparison-boxplot} to show the average QoE as shown in~Eq.~\ref{eq:qoe-equation} to 15, 20, and 25 users from left to right, respectively. The boxplot represents the Cloud-only, 1\&2 node and mobility scenarios. As seen, the overall average performance of the 1\&2 is higher than the Cloud-only and mobility. Mainly due to the choices of nodes at the edge peering nodes for serving the requests done by users. 
-
 %
 For instance, for a 1\&2 experiment, it occurs congestion in the intermediate links $e_{0,1}$ e $e_{0,2}$, 
 the edge peering nodes are activated to serve the end-users below those nodes. In this way, the traffic passing through the link above will now be smoothed out, so the users can improve their resulting QoE to an excellent level.
 %edge peering nodes are activates para atender os usuários abaixo desses nós. Desta forma, os trafego que estava passando pelos link acima agora vão ser suavizados, assim os usuários conseguem melhorar seu QoE resultante para um nível excelente.    
 %
-Since the users request the segments by the closer nodes in scenarios 1\&2, it is evident that as the QoE increases. %Remember that the scenario 1\&2, there is a link congestion monitoring, so when a congestion link is detected, the cache node above the link is activated, and the users are redirected to request the video from the cache node.
+Since the users request the segments by the closer nodes and with no congestion link in scenarios 1\&2, it is evident that as the QoE increases. %Remember that the scenario 1\&2, there is a link congestion monitoring, so when a congestion link is detected, the cache node above the link is activated, and the users are redirected to request the video from the cache node.
 %
 The performance difference of the Cloud-only and mobility is near one order of satisfaction for 15 and 20 users and approximately two~three orders of satisfaction with 25 users.
 
 
-It is important to note that the QoE results of scenarios after mobility are similar to the results of Cloud-only, even that the edge peering nodes using the QoE. This is due to the lack of a rerouting mechanism when users switch to another AP. The connections between the edge peering nodes and the users remain unchanged, so that the paths through which the packets pass are worse, negatively impacting the performance of the network as a whole.
+It is important to note that the QoE results of scenarios after mobility are similar to the results of Cloud-only, even that the edge peering nodes using the QoE. This is due to the lack of a rerouting mechanism in real-time when users switch to another AP. The connections between the edge peering nodes and the users remain unchanged, so that the paths through which the packets pass are worse, negatively impacting the performance of the network as a whole.
 %Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
 Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start the segment requests). Here, we can see the final QoE degradation to each user's entrance along the simulation execution. The green plot represents the number of active users simultaneously.  
 As users reach the final QoE in this experiment, it tends to be slightly lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable different. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
 
-%While Figures~\ref{fig:red-comparison-plot} and~\ref{fig:red-comparison-boxplot} show that a simple video allocation strategy at the edge can help improve the quality of the user experience.
-
-
 Based on these observations,
 a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system can provide user satisfaction qualities and tend to keep them watching the video until the end.
-However, if there is no correct management of connections in real-time, we can conclude that the impact introduced by the AP changes can significantly decrease the QoE for mobile users. The user experience can end up getting worse even using the edge of the network. Proper management of multimedia content can be done so that a simple migration of content within the edge can solve the problem. 
+However, if there is no correct management of connections in real-time, we can conclude that the impact introduced by the AP changes can significantly decrease the QoE for mobile users. The user experience can end up getting worse even using the edge of the network. Proper management of multimedia content can be done in which the VoD focus the decision-making in provide a a better QoE for the users changes. A simple content migration within the own edge in a upper tier can solve the problem, as well as realize a rerouting between the active users connections and the server nodes. 
 
-%Based on these observations, 
+%Based on these observations,
 %a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system is able to provide user satisfaction qualities as well as they tend to keep them watching the video until the end. 
 %Contudo, caso não ocorra um correcto management das conexões em tempo real,  we can conclude that the impact introduced by the AP changes can decrease significantly the QoE for mobile users. A experiencia do usuário pode acabar se tornando pior mesmo usando a borda da rede. Um gerenciamento adequado do conteúdo multimidia pode ser feito de modo que uma simples migração do conteúdo dentro da borda pode solucionar o problema.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
