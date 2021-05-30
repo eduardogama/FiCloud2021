@@ -4,24 +4,13 @@
 %{\color{blue} In this section we will contextualize video streaming technology and hierarchical caching problems, emphasizing the need of create a hierarchical topology to , and describe the content of each section of the paper.}
 
 % Introduction of the Content and MEC service provider  
-Over the years, Internet traffic has grown exponentially around the world. Mainly due to the multimedia content streaming, which, currently, represents 70\% of the whole traffic~\cite{cisco:forecast}. 
-The Over-the-top~(OTT) provider can use the network edge to caching and transmit the video traffic with an uninterrupted streaming experience, at least as smooth as possible, to accommodate this growing video demand. This includes current video services as well as innovative services such as Real-time video streams and future games console~(e.g. AWS Wavelength and Google Stadia).
-This trend imposes new challenges in video provisioning to satisfy the Quality of Experience~(QoE) guarantees for a wide range of users subscribers. As it is originally designed to consider the best-effort internet model for data transmission~\cite{gamaUCC2019, DBLP:CoRR:2021, ye:ITC17}.
+Over the years, Internet traffic has grown exponentially around the world, especially due to the multimedia content streaming, which currently represents 70\% of the whole traffic~\cite{cisco:forecast}. 
+The Over-the-top~(OTT) provider can use the network edge to cache and transmit the video traffic with an uninterrupted streaming experience, as smooth as possible, to accommodate this growing video demand. This includes standard video services as well as innovative services such as real-time video streams and future gaming platforms using cloud infrastructures~(e.g. AWS Wavelength and Google Stadia)~\cite{amzo:AWSEdge}.
+This trend imposes new challenges in video provisioning to satisfy the Quality of Experience~(QoE) guarantees for a wide range of  subscribers. As it is originally designed to consider the best-effort internet model for data transmission~\cite{gamaUCC2019, DBLP:CoRR:2021, ye:ITC17}.
 %In order to provide the best user satisfaction, the advantages of high datarate and low latency in the edge network take into account today~\cite{gamaUCC2019, DBLP:CoRR:2021, ye:ITC17}. This trend imposes new challenges in providing videos with the best QoE, originally designed considering the best-effort internet model for data transmission.
 
-In the moment that the content provider saturates available bandwidth or a particular set of service metrics across the network, the cloud server~(OTT provider) can reroute active connections to one or more edge caches that attend to the demand required. Such model can be represented by network organized hierarchically in multi-tiers to maintain a low traffic load~\cite{rosarioSENSORS2018}.
+In the moment that the content provider saturates available bandwidth or a particular set of service metrics across the network, the cloud server~(OTT provider) can reroute active connections to one or more edge caches to service the required demand. Such model can be represented by a network organized hierarchically in multi-tiers to maintain a distributed, balanced traffic load~\cite{rosarioSENSORS2018}.
 %When the content provider saturates the available bandwidth or a certain set of service metrics, the request may be routed to one or more edge caches. This model may be organized hierarchically in multi-tiers maintains a low traffic load~\cite{rosarioSENSORS2018}.
-
-% Challenges
-As well as the advantages of using the edge of the network with cache capabilities help user satisfaction, but it could bring negative impacts as well. When many users start to request video segments at the edge nodes, these surrogated nodes consider static users and just one edge node tiers. These nodes are not ready to deal with the constant changes in the number of users and the process of switching between different Access Points~(AP) due to user mobility.
-Several works in the literature highlight edge/cloud computing to deal with the new video traffic demands, but there are aspects little addressed in user dynamic solutions. Figure~\ref{fig:multi-tier-network} depicts a multi-tier network architecture, which is composed of a heterogeneous set of devices and applications using distributed computing resources through multi-access communication technology, such as 5G and WiFi.
-%
-%Furthermore, the number of users connected in different APs changes accordingly to the surrogated edge nodes. For instance, a core network regional edge node provides video streaming to more users than an edge gateway. As shown in Fig.~\ref{fig:multi-tier-network}.
-%
-%Since the triggered video segments caching (replication) in an edge node.
-%However, certain precautions when choosing the nodes for caching the video need to be taken into account. 
-
-%Which it could result some issues. 
 
 \begin{figure}
     \centering
@@ -30,13 +19,23 @@ Several works in the literature highlight edge/cloud computing to deal with the 
     \label{fig:multi-tier-network}
 \end{figure}
 
+% Challenges
+Using the edge of the network with cache and replica capabilities helps user satisfaction, but it could bring negative impacts as well. When many users start to request video segments at the edge nodes, these surrogated nodes consider static users and just one edge node tiers. These nodes are not ready to deal with the constant changes in the number of users and the process of switching between different Access Points~(AP) due to user mobility.
+Several works in the literature highlight edge/cloud computing to deal with the new video traffic demands, but there are neglected aspects  related dynamic load solutions. Figure~\ref{fig:multi-tier-network} depicts a multi-tier network architecture, which is composed of a heterogeneous set of devices and applications using distributed computing resources through multi-access communication technology. Below the cloud layer, the network edge is divided into three layers organized hierarchically. In this multi-tier ecosystem, Core Network Regional Edge can manage coordination across the distributed infrastructure, for example, in a smart city, followed by the Access Network Edge, which supports a few dozen to maybe a few hundred local nodes at the middle layer of the edge computing infrastructure. The Edge gateways can be distributed on local edge nodes, where the node re-transmits video content by means of wired or wireless communication.
+%
+%Furthermore, the number of users connected in different APs changes accordingly to the surrogated edge nodes. For instance, a core network regional edge node provides video streaming to more users than an edge gateway. As shown in Fig.~\ref{fig:multi-tier-network}.
+%
+%Since the triggered video segments caching (replication) in an edge node.
+%However, certain precautions when choosing the nodes for caching the video need to be taken into account. 
+
+%Which it could result some issues. 
+
 % Objective
-Motivated by these characteristics in multi-tier edge/cloud scenarios to improve users' satisfaction, as well as accommodate the growing video traffic. This article presents the need for an orchestrator in real-time to provide video streaming content.
-Our goal is to provide designers and operators a performance analysis of a hierarchical edge network and its impacts on the users' QoE. The models we present in this paper are evaluated by a series of simulations using a controlled environment.
+Motivated by these characteristics in multi-tier edge/cloud scenarios to improve users' satisfaction, as well as to accommodate the growing video traffic, this paper discusses the need of an orchestrator to provide video streaming content in dynamic scenarios.
+Our goal is to provide designers and operators a performance analysis of a hierarchical edge network and its impacts on the users' QoE. The models we present in this paper are evaluated by a series of simulations using a controlled environment, suggesting dynamic resource allocation mechanism are necessary to cope with video demands, for example when users are mobile.
 
 % Organization paper
-This work is organized as follows.
+This paper is organized as follows.
 Section \ref{sec:related-work} presents related work on the impact of edge/cloud networks on video streaming services.
-Section \ref{sec:system-archi} briefly analysis the proposed multi-tier edge/cloud network and describe some opportunities of using such environments.
-Section \ref{sec:results} shows preliminary results on the impact of the network performance for video streaming services.
-Finally, \ref{sec:conclusion} concludes the paper.
+Section \ref{sec:system-archi} briefly analyzes the proposed multi-tier edge/cloud network and describes some opportunities of using such architectures.
+Section \ref{sec:results} shows preliminary results on the impact of the network performance for video streaming services and motivates further research on the topic, and Section \ref{sec:conclusion} concludes the paper.
