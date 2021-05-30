@@ -69,9 +69,9 @@ The $QoE_{i}$ for each user $i$ has a range of 1 to 5. Where the values 1 = bad,
 
 %As mentioned earlier, the behavior of ABR schemes introduces the problem of selfish decisions when choosing the next segment to be requested. Obviously, different metrics of segment choices lead to different results in the status of buffer occupation and quality of the user's video, which results in a different QoE factor according to the heuristic used.
 
-The experiments illustrated in Figures~\ref{fig:comparison-boxplot} to show the average QoE as shown in~Eq.~\ref{eq:qoe-equation} to 15, 20, and 25 users from left to right, respectively. The boxplot represents the Cloud-only, 1\&2 node and mobility scenarios. As seen, the overall average performance of the 1\&2 is higher than the Cloud-only and mobility. Mainly due to the choices of nodes at the edge peering nodes for serving the requests done by users. 
+The experiments illustrated in Figures~\ref{fig:exp-boxplot-15}, \ref{fig:exp-boxplot-20} and \ref{fig:exp-boxplot-25} show the average QoE calculated by~Eq.~\ref{eq:qoe-equation} to 15, 20, and 25 users. Each boxplot represents the Cloud-only, 1\&2 node and mobility scenarios. As seen, the overall average performance of the 1\&2 is higher than the Cloud-only and mobility. Mainly due to the choices of nodes at the edge peering nodes for serving the requests done by users. 
 %
-For instance, for a 1\&2 experiment, it occurs congestion in the intermediate links $e_{0,1}$ e $e_{0,2}$, 
+For instance, for a 1\&2 experiment, when a congestion occurs in intermediate links $e_{0,1}$ e $e_{0,2}$, 
 the edge peering nodes are activated to serve the end-users below those nodes. In this way, the traffic passing through the link above will now be smoothed out, so the users can improve their resulting QoE to an excellent level.
 %edge peering nodes are activates para atender os usuários abaixo desses nós. Desta forma, os trafego que estava passando pelos link acima agora vão ser suavizados, assim os usuários conseguem melhorar seu QoE resultante para um nível excelente.    
 %
@@ -80,62 +80,59 @@ Since the users request the segments by the closer nodes and with no congestion 
 The performance difference of the Cloud-only and mobility is near one order of satisfaction for 15 and 20 users and approximately two~three orders of satisfaction with 25 users.
 
 
-
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\linewidth]{images/QoEBoxplot-15u.eps}
     \vspace{-0.9cm}
-    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
-    \label{fig:exp-setup-scenario}
+    \caption{Average QoE results for scenario with 15 users per AP.}
+    \label{fig:exp-boxplot-15}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\linewidth]{images/QoEBoxplot-20u.eps}
     \vspace{-0.9cm}
-    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
-    \label{fig:exp-setup-scenario}
+    \caption{Average QoE results for scenario with 20 users per AP.}
+    \label{fig:exp-boxplot-20}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\linewidth]{images/QoEBoxplot-25u.eps}
     \vspace{-0.9cm}
-    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
-    \label{fig:exp-setup-scenario}
+    \caption{Average QoE results for scenario with 25 users per AP.}
+    \label{fig:exp-boxplot-25}
 \end{figure}
 
 
 It is important to note that the QoE results of scenarios after mobility are similar to the results of Cloud-only, even that the edge peering nodes using the QoE. This is due to the lack of a rerouting mechanism in real-time when users switch to another AP. The connections between the edge peering nodes and the users remain unchanged, so that the paths through which the packets pass are worse, negatively impacting the performance of the network as a whole.
 %Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
-Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start the segment requests). Here, we can see the final QoE degradation to each user's entrance during the simulation execution. The green plot represents the number of active users simultaneously.  
-As users reach the final QoE in this experiment, it tends to be slightly lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable different. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
-
-
+Figures~\ref{fig:exp-setup-15}, \ref{fig:exp-setup-20} and \ref{fig:exp-setup-25} show the QoE final of each user per start time~(time to start the segment requests). Here, we can see the final QoE degradation to each user's entrance during the simulation execution. The green plot represents the number of active users simultaneously.  
+As users reach the final QoE in this experiment, it tends to be slightly lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable different. Through the figures we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\linewidth]{images/UserQoExUserStartTime15users.eps}
     \vspace{-0.7cm}
-    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
-    \label{fig:exp-setup-scenario}
+    \caption{Average QoE final results for each user with 15 users per AP.}
+    \label{fig:exp-setup-15}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\linewidth]{images/UserQoExUserStartTime20users.eps}
     \vspace{-0.7cm}
-    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
-    \label{fig:exp-setup-scenario}
+    \caption{Average QoE final results for each user with 20 users per AP.}
+    \label{fig:exp-setup-20}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\linewidth]{images/UserQoExUserStartTime25users.eps}
     \vspace{-0.7cm}
-    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
-    \label{fig:exp-setup-scenario}
+    \caption{Average QoE final results for each user with 25 users per AP.}
+    \label{fig:exp-setup-25}
 \end{figure}
 
 Based on these observations,
