@@ -34,7 +34,8 @@ To show the problems that can appear in such scenarios, and a connection change 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\linewidth]{images/exp-setup-scenario.pdf}
+    %\includegraphics[width=0.9\linewidth]{images/exp-setup-scenario.pdf}
+    \includegraphics[width=\linewidth]{images/qoe-multi-level-2.pdf}
     \caption{A General Overview of the multi-tier network environment.}
     \label{fig:exp-setup-scenario}
 \end{figure}
@@ -62,7 +63,7 @@ QoE_i = \frac{1}{K} \sum_{k=1}^{K}q(r_{k}) - \frac{1}{K-1} \sum_{k=1}^{K-1}|q(r_
 
 The $QoE_{i}$ for each user $i$ has a range of 1 to 5. Where the values 1 = bad, 2 = poor, 3 = fair, 4 = good, and 5 = excellent.
 
-\input{figures}
+%\input{figures}
 
 \subsection{Discussion and Results Summary}
 
@@ -79,11 +80,63 @@ Since the users request the segments by the closer nodes and with no congestion 
 The performance difference of the Cloud-only and mobility is near one order of satisfaction for 15 and 20 users and approximately two~three orders of satisfaction with 25 users.
 
 
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/QoEBoxplot-15u.eps}
+    \vspace{-0.9cm}
+    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
+    \label{fig:exp-setup-scenario}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/QoEBoxplot-20u.eps}
+    \vspace{-0.9cm}
+    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
+    \label{fig:exp-setup-scenario}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/QoEBoxplot-25u.eps}
+    \vspace{-0.9cm}
+    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
+    \label{fig:exp-setup-scenario}
+\end{figure}
+
+
 It is important to note that the QoE results of scenarios after mobility are similar to the results of Cloud-only, even that the edge peering nodes using the QoE. This is due to the lack of a rerouting mechanism in real-time when users switch to another AP. The connections between the edge peering nodes and the users remain unchanged, so that the paths through which the packets pass are worse, negatively impacting the performance of the network as a whole.
 %Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation, thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
 Figures~\ref{fig:comparison-qoe-2} show the QoE final of each user per the start time~(time to start the segment requests). Here, we can see the final QoE degradation to each user's entrance during the simulation execution. The green plot represents the number of active users simultaneously.  
 As users reach the final QoE in this experiment, it tends to be slightly lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$ seem to be irrelevant, but as we increase the delta, the QoE starts to become considerable different. Through the figure~\ref{fig:co-comparison-boxplot} we can also affirm this behavior, as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per system, the system already shows a degradation in the quality negatively perceived by the end-user.
+
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/UserQoExUserStartTime15users.eps}
+    \vspace{-0.7cm}
+    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
+    \label{fig:exp-setup-scenario}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/UserQoExUserStartTime20users.eps}
+    \vspace{-0.7cm}
+    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
+    \label{fig:exp-setup-scenario}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\linewidth]{images/UserQoExUserStartTime25users.eps}
+    \vspace{-0.7cm}
+    \caption{Average QoE results for scenarios with 15, 20 and 25 users per AP.}
+    \label{fig:exp-setup-scenario}
+\end{figure}
 
 Based on these observations,
 a simple strategy of moving the video to the edge can significantly improve the user's QoE. In this way, the video transmission system can provide user satisfaction qualities and tend to keep them watching the video until the end.
