@@ -32,9 +32,8 @@ Opportunities for resource management in multi-tier edge/cloud networks for the 
 \subsubsection{Improving User QoE}
 
 %the cloud distributes the video content to the different levels of the edge. Depending the level which the video is cached the users' experience changes. The architecture is based on held the video distribution with QoE support. The work divides the edge into three layers, to guarantee coverage, storage, upload and download capacity. 
-In a multi-tier environment composed of more than one domain of devices, the domain resources can host the video content near the end-users, reducing latency and mitigating the load on the network core. The edge nodes are composed of specific resources combined to carry out the video transmission to integrate video streaming services in such communication environments. Within this context, mechanisms for integrating schemes and video streaming raise as an opportunity to improve QoE.% at each network level.
-The results reported in Fig~\ref{fig:impact-two-layers} suggests that it is possible to improve the users' satisfaction using the edge multi-tier network. Depending on the level of allocation of the video service, the video smoothing variation between characteristics of the player changes.
-
+In a multi-tier environment composed of more than one tier resources availability, the resources can host the video content near the end-users, reducing latency and mitigating the load on the network core. The edge nodes are composed of specific resources combined to carry out the video transmission to integrate video streaming services in such communication environments. Within this context, integrating QoE feedback models inside the player raise as an opportunity to improve the users' satisfaction.% at each network level.
+The results reported in Fig~\ref{fig:impact-two-layers} suggests that it is possible to improve the users' satisfaction using the edge multi-tier network. Depending on the level of allocation of the video service, smoothing of video playback between users changes.% the video smoothing variation between characteristics of the player changes.
 
 \subsubsection{Potential Bandwidth Saving}
 
@@ -48,6 +47,7 @@ The process of delivering part of the video along the network can significantly 
 %Caching audio/video during peak hours ...
 %Manage the QoE users refer to those services where the Controller can centrally control the satisfaction guarantees. The Controller can address this problem by creating a control channel to managed-quality video streaming services over the edge-cloud network.
 
-Nodes located at the edge are responsible for providing resources to VoD providers to allocate their caches.  Note that the caches are to multi-hop away from the content provider/consumer. 
-With new possibilities being created to offer better services that work on the internet. As the problem becomes complex and new challenges arise to be solved. Different characteristics have to be studied in multi-tier environments into the edge, such as cache allocation, placement, replacement, and selection caches, usually in real-time decision-making processes. In addition, content can be dynamically split into a set of pieces to serve the end-users, taking into account different characteristics, such as the mobility presented by the user and the possibility of predicting the movement direction. 
-
+Nodes located at the edge are responsible for providing resources to VoD providers to allocate their caches.  
+The allocated caches make multi-hops within the edge itself to serve the end-user. 
+With this characteristic, different possibilities in the multi-tier network still have to be studied, such as cache allocation, placement, replacement, and selection caches, usually making decisions in real-time. These problems are able to offer a better video streaming service.
+In addition, an orchestrator has to consider the user's mobility and/or the possibility of predicting the direction of movement. In this way, as the user changes their trajectory, new caching mechanisms can use this information to optimize streaming video services.
