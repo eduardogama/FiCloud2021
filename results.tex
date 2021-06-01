@@ -50,7 +50,7 @@ There are many QoE models in the literature. We describe how QoE metrics can be 
 \begin{equation}\label{eq:equation-1}
 q(r_i) = a_1 * log(a_2 * (r_i/ r_{|L|}))
 \end{equation}
-\vspace{0.05cm}
+% \vspace{0.05cm}
 
 It is required a flexible QoE model that includes the most influential metrics to quantify long-term users' QoE. 
 We consider Equation~\ref{eq:qoe-equation} from~\cite{bentaleb:2018:MSys}, which consists of four metrics: (a) the average chunk perceptual quality, (b) the average number of quality oscillations, (c) the average number of stall events and their durations, and (d) the startup delay. $K$ represents the total segments of the video, $S_{i}$ is the stall duration, and $ST_{i}$ is the startup delay of user $i$.
@@ -61,7 +61,7 @@ QoE_i = \frac{1}{K} \sum_{k=1}^{K}q(r_{k}) - \frac{1}{K-1} \sum_{k=1}^{K-1}|q(r_
 - \frac{1}{K}\sum_{k=1}^{K} S_{k} - ST_{i}
 \end{split}
 \end{equation}
-\vspace{0.05cm}
+% \vspace{0.05cm}
 
 The $QoE_{i}$ for each user $i$ can range from 1 to 5, where 1 = bad, 2 = poor, 3 = fair, 4 = good, and 5 = excellent.
 
@@ -124,7 +124,6 @@ Despite cloud-only and mobility scenarios, the network is always operating with 
 % Whereas for cloud-only and mobility scenarios, a rede está sempre operando com um desvio padrão elevado. A medida que o número de usuários aumenta o QoE , aparecendo, inclusive, alguns outliers com o pior nível de satisfação possivel, sendo ruim.
 
 %For cloud-only and mobility scenarios have individual QoEs for each similar user. 
-
 
 \begin{figure}[!htb]
     \centering
