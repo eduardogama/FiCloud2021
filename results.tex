@@ -109,8 +109,22 @@ The performance difference of the Cloud-only and mobility is near one level of s
 It is important to note that the QoE results of scenarios after mobility are similar to the results of Cloud-only, even with the edge peering nodes using the QoE. This is due to the lack of a rerouting mechanism in real-time when users switch to another AP. The connections between the edge-peering nodes and the users remain unchanged so that the paths through which the packets pass are longer, negatively impacting the performance of the network as a whole.
 %Another point to be noted is the average bit rate between different levels. In the scenario with 20 users, level 3 was able to achieve what is necessary to obtain the highest bit rate representation. Thus, network operators can seek to deploy caches during peak hours to provide the best user experience.
 
-Figures~\ref{fig:exp-setup-15}, \ref{fig:exp-setup-20}, and \ref{fig:exp-setup-25} show the final QoE of each user per start time~(time to start the segment requests). Here, we can see the final QoE degradation for each user's entrance during the simulation execution. The red plot represents the number of active users simultaneously. 
+Figures~\ref{fig:exp-setup-15}, \ref{fig:exp-setup-20}, and \ref{fig:exp-setup-25} show the final QoE of each user per start time~(time to start the segment requests). 
+Where each blue tick represents a user, and
+the QoE means the final user satisfaction for the fully watched video.
+Here, we can see the final QoE degradation for each user's entrance during the simulation execution.
+The red plot represents the number of active users simultaneously.  
 As users reach the final QoE in this experiment, it tends to be slightly lower than the previous one. When looking at the final QoE delta between users $u_{i}$ and $u_{i + 1}$, this seems to be irrelevant, but as we increase the delta, the QoE starts to become considerably different. We can also confirm this behavior by showing that as the number of users increases, the average QoE decreases, and the variation between users increases. Also, note that in the simulation with 25 users per AP, the system already shows a degradation in the quality, negatively perceived by the end-user.
+
+As we can see, the final QoE tends to become worse as the number of active users increase. From the simulation time 300 the network starts to operate with the total number of users. It is easy to see that for Edge cache, the final QoE for each user remains close, this can also be confirmed by the standard deviation presented in the legend of the figures, being even imperceptible for scenario with 15 users per AP with 0,037.
+Despite cloud-only and mobility scenarios, the network is always operating with a high standard deviation. As the number of users increases the QoE, even some outliers appearing with the worst level of satisfaction, which is bad.
+
+% As we can see, the final QoE  tends to become worse as the number of active users increase. From the simulation time 300 the network starts to operate with the total number of users. It is easy to see that, for Edge cache the average QoE para os usuarios permaneceram proximas, isso pode ser confirmado, também, pelo desvio padrão apresentado na leganda dos figuras.
+
+% Whereas for cloud-only and mobility scenarios, a rede está sempre operando com um desvio padrão elevado. A medida que o número de usuários aumenta o QoE , aparecendo, inclusive, alguns outliers com o pior nível de satisfação possivel, sendo ruim.
+
+%For cloud-only and mobility scenarios have individual QoEs for each similar user. 
+
 
 \begin{figure}[!htb]
     \centering
@@ -131,7 +145,7 @@ As users reach the final QoE in this experiment, it tends to be slightly lower t
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\linewidth]{images/UserQoExUserStartTime25users-2.eps}
-    \vspace{-0.4	cm}
+    \vspace{-0.4cm}
     \caption{Average QoE for each user (25 users per AP).}
     \label{fig:exp-setup-25}
 \end{figure}
